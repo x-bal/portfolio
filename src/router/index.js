@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import Project from '../views/Project.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/projects',
+    name: 'projects',
+    component: Project
   },
   {
     path: '/about',
@@ -18,6 +24,7 @@ const routes = [
 ]
 
 const router = createRouter({
+  linkActiveClass: "active",
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
