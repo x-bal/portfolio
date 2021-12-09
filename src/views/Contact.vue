@@ -8,18 +8,19 @@
 
     <div class="row my-5 d-flex justify-content-center">
       <div class="col-md-5">
-        <ul class="list-group">
+        <ul class="list-group text-center">
           <li
             v-for="contact in contacts"
             :key="contact.name"
             class="list-group-item border-0"
           >
             <a
+              target="_blank"
               @click="redirect(contact.link)"
               style="text-decoration: none"
-              class="d-flex justify-content-between align-items-center"
+              class="align-items-center link"
             >
-              <i :class="contact.icon" class="fa-2x"></i>
+              <i :class="contact.icon" class="fa-2x text-dark"></i><br />
               <span class="">https://{{ contact.link }}</span>
             </a>
           </li>
@@ -50,7 +51,7 @@ export default {
     },
 
     redirect(url) {
-      window.location.href = "https://" + url;
+      window.open("https://" + url, "_blank");
     },
   },
 };
@@ -59,5 +60,8 @@ export default {
 <style scoped>
 .list-group-item {
   background: none;
+}
+.link:hover {
+  cursor: pointer;
 }
 </style>
